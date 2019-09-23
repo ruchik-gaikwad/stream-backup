@@ -24,6 +24,8 @@ export class WebsocketService {
     console.log("here", this.serverUrl)
     let ws = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(ws);
+    this.stompClient.debug = null
+
     let that = this;
     this.stompClient.connect({}, (frame)  => {
       that.stompClient.subscribe("/topic/PoliticalDomainNda", (message) => {

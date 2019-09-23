@@ -20,7 +20,7 @@ export class PieChartComponent implements OnInit {
     }
   this.data.subscribe(data =>{
     inputData=data
-    console.log(data)
+    console.log(data,"Inside piee")
     let plot={
       type:'pie',
       options:{

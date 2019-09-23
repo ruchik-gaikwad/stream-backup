@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as Chart from 'chart.js'
 @Component({
   selector: 'app-multi-line-chart',
@@ -7,9 +7,16 @@ import * as Chart from 'chart.js'
 })
 export class MultiLineChartComponent implements OnInit {
 linechart:any
+
+@Input()
+data;
   constructor() { }
 
   ngOnInit() {
+    this.data.subscribe(data => {
+      console.log(data , "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    })
+    
     this.linechart=new Chart('multiline',{
       type:'line',
       data:{

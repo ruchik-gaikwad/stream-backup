@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WebsocketService } from '../service/websocket.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-live-feed',
@@ -20,9 +21,9 @@ export class LiveFeedComponent implements OnInit {
       this._socket.PoliticalSuject.subscribe((data: any) => {
         count++
         let dataJson = JSON.parse(data)
-        console.log(dataJson, "########################################")
-
-        this.Activities.unshift(JSON.parse(data));
+        dataJson.timeStamp = moment(parseInt(dataJson.timeStamp)).format("HH:MM:SS")
+        console.log(dataJson.timeStamp)
+        this.Activities.unshift(dataJson);
         if (count == 100) {
           count = 0
           this.Activities = [];

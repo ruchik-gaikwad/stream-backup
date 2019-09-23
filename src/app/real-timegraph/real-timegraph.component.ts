@@ -49,7 +49,7 @@ export class RealTimegraphComponent implements OnInit, AfterViewInit {
                       fill: true,
                       lineTension: 0.1,
                       borderColor: 'red',
-                      borderWidth: 1
+                      borderWidth: 1.5
                     }
                   ]
                 },
