@@ -17,7 +17,7 @@ export class RealTimegraphComponent implements OnInit, AfterViewInit {
 
     myChart
 
-    domainsQueue: Collections.Queue<number>;
+    domainsQueue: Collections.Queue<number> = new Collections.Queue;
     
     constructor(private socket: WebsocketService) { }
 
@@ -32,17 +32,8 @@ export class RealTimegraphComponent implements OnInit, AfterViewInit {
             data = JSON.parse(data)
             console.log(sentimentScore)
             let score = parseInt(data.sentimentResult.sentimentScore)
-            console.log(score)
             this.domainsQueue.enqueue(score);
-            let singleTimeUnit = moment(parseInt(data.timestamp)).format('HH').toString()
-            sentimentScore.unshift(score)
-            labels.unshift(singleTimeUnit)
-            plot.data.datasets[0].data.push(score)
-            // plot.data.labels.push(singleTimeUnit)
-            labels.push()    
-            console.log(sentimentScore)
-            console.log(labels)  
-            this.myChart.update();
+ 
         })
             let sentimentScore = []
             let labels = []
@@ -65,7 +56,9 @@ export class RealTimegraphComponent implements OnInit, AfterViewInit {
                 options: {
                   title: {
                     text: 'Line Chart',
-                    display: true
+                    fontFamily: "Montserrat",
+                    display: true,
+                    fontSize: 24
                   },
                   scales: {
                     xAxes: [
@@ -103,7 +96,7 @@ export class RealTimegraphComponent implements OnInit, AfterViewInit {
                   }
                 }
               };
-              this.myChart = new Chart('lineChart', plot);
+              this.myChart = new Chart(this.canvas.nativeElement, plot);
             
             
             

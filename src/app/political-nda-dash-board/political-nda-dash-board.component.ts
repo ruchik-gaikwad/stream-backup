@@ -12,6 +12,7 @@ import { Subject } from 'rxjs';
 export class PoliticalNDADashBoardComponent implements OnInit {
   barChartData: any = new Subject();
   pieChartData:any = new Subject();
+  liveFeed: any = new Subject();
 
   constructor(private authenticationService: AuthenticationService, private router: Router, private activity: ActivityService) {
 
@@ -25,6 +26,8 @@ export class PoliticalNDADashBoardComponent implements OnInit {
       this.populatePieChartData(data)
 
     })
+
+    
 
   }
   populateBarChartData(data){
@@ -70,6 +73,7 @@ export class PoliticalNDADashBoardComponent implements OnInit {
     }) 
 }
   populatePieChartData(data){
+    console.log(data)
     let general=0
     let health=0
     let finance=0
@@ -92,7 +96,7 @@ export class PoliticalNDADashBoardComponent implements OnInit {
       }    
   })
   console.log(labels)
-  console.log(general,health,finance,foreign)
+  console.log(general,health,finance,foreign, "askdnakjsldkjalksdj@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
 this.pieChartData.next({
   plotData:[health,finance,foreign,general],

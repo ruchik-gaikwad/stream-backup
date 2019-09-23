@@ -30,6 +30,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ActivityService } from './service/activity.service';
 import { RealTimeOrganisationChartComponent } from './real-time-organisation-chart/real-time-organisation-chart.component';
 import { ChartjsModule } from '@ctrl/ngx-chartjs';
+import { LiveFeedComponent } from './live-feed/live-feed.component';
 // import { LandingComponent } from './landing/landing.component';
 
 
@@ -45,7 +46,8 @@ import { ChartjsModule } from '@ctrl/ngx-chartjs';
     OrganisationIbmDashboardComponent,
     RealTimeOrganisationChartComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LiveFeedComponent
     // LandingComponent,
 
   ],

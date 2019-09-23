@@ -19,7 +19,7 @@ export class OrganisationIbmDashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.activity.getActivities().subscribe(data => {
+    this.activity.getActivitiesIBM().subscribe(data => {
       console.log(data)
       this.populateBarChartData(data)
       this.populatePieChartData(data)
@@ -92,7 +92,7 @@ console.log(general,hr,product,marketing)
 
 this.pieChartData.next({
 plotData:[hr,product,marketing,general],
-labels : ["Human Resource","Producta & Services","Marketing","General"],
+labels : ["Human Resource","Products & Services","Marketing","General"],
 }) 
 }
 logout() {

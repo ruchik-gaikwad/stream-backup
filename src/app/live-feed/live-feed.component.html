@@ -1,0 +1,12 @@
+<mat-card>
+
+    <mat-card-header id="header2">
+        Live Feed
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngFor = "let activitiy of Activities">
+               <span>{{activitiy.timeStamp}}</span> <span>{{activitiy.content}}</span>
+        </div>
+    </mat-card-content>     
+</mat-card>
+

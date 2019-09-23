@@ -21,7 +21,8 @@ const routes: Routes = [
     path: 'organisation', component: OrganisationIbmDashboardComponent, //canActivate: [AuthGuard]
   },
   {path:'login',component:LoginComponent},
-  { path: 'home', component: ComponentsComponent },
+  { path: '', component: ComponentsComponent },
+  {path: "**", component: ComponentsComponent}
   // { path: 'user-profile', component: ProfileComponent },
   // { path: 'signup', component: SignupComponent },
   // { path: 'landing', component: LandingComponent },
