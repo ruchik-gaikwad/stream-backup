@@ -109,7 +109,7 @@ this.pieChartData.next({
   }
 
   populateMultiLineChart(data) {
-
+    data = data.splice(0, 100)
     let dataSet = {
       positive: [],
       negative: [],
@@ -131,9 +131,11 @@ this.pieChartData.next({
     data.map(e => {
       // JSON.parse(e);
       let duration = moment.duration(parseInt(e.timeStamp));
-      console.log(Math.floor(duration.asHours()))
-      
-      if (currentTime <= Math.floor(duration.asHours())) {
+      // console.log(Math.floor(duration.asHours()))
+      console.log(currentTime == Math.floor(duration.asHours()))
+      let time = Math.floor(duration.asHours())
+      console.log(currentTime, time)
+      if (currentTime == time) {
         if (e.sentimentResult.sentimentType == "Positive") {
           positive.currentTime = Math.floor(duration.asHours());
           positive.score = positive.score + parseInt(e.sentimentResult.sentimentScore)
@@ -146,17 +148,20 @@ this.pieChartData.next({
           negative.currentTime = Math.floor(duration.asHours());
           
           negative.score = negative.score + parseInt(e.sentimentResult.sentimentScore)
-          console.log(negative.score, "HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
+          // console.log(negative.score, "HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+          
         }
-
-      }else {
+    
+      }
+      
+      if (currentTime !== time){
+        console.log(positive, negative, neutral)
         currentTime = Math.floor(duration.asHours());
         dataSet.positive.push(positive);
         dataSet.negative.push(negative);
         dataSet.neutral.push(neutral);
         console.log("ELSE::::::::::::", negative)
-        
+
       }
       
     })

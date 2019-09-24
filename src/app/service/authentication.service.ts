@@ -26,7 +26,7 @@ export class AuthenticationService {
       return this.currentUserSubject.value;
   }
   login(username: string, password: string) {
-      var url="http://localhost:9001/authenticate";
+      var url="http://13.235.223.235:9001/authenticate";
       return this.http.post<any>(url, { username, password })
           .pipe(map(user => {
               // login successful if there's a jwt token in the response

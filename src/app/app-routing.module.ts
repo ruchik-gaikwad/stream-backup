@@ -15,10 +15,10 @@ const routes: Routes = [
   { path: 'home', component: ComponentsComponent },
 
   {
-    path: 'political', component: PoliticalNDADashBoardComponent,// canActivate: [AuthGuard]
+    path: 'political', component: PoliticalNDADashBoardComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'organisation', component: OrganisationIbmDashboardComponent, //canActivate: [AuthGuard]
+    path: 'organisation', component: OrganisationIbmDashboardComponent, canActivate: [AuthGuard]
   },
   {path:'login',component:LoginComponent},
   { path: '', component: ComponentsComponent },

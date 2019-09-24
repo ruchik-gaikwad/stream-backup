@@ -32,7 +32,7 @@ export class WebsocketService {
         this.PoliticalSuject.next(message.body)
       });
       this.stompClient.subscribe("/topic/OrganizationDomainIbm", message => {
-        this.IBMSubject.next(message)
+        this.IBMSubject.next(message.body)
       });
     });
   }

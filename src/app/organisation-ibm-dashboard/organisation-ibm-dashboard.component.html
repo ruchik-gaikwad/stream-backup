@@ -1,15 +1,16 @@
 <mat-toolbar class="navbar">
-    <mat-toolbar-row>
-       <span class="spacer"></span>
-       <a mat-raised-button  matTooltip="You will be logged out"
-       (click)="logout()">Logout</a>
-    </mat-toolbar-row>
-  </mat-toolbar> 
-<div class="parent-layout">
-    <app-real-time-organisation-chart></app-real-time-organisation-chart>
-    <div class="child-layout-1">
-        <app-bar-chart [data] = "barChartData" ></app-bar-chart>
-        <app-pie-chart [data] = "pieChartData"></app-pie-chart>
+        <mat-toolbar-row>
+           <span class="spacer"></span>
+           <a mat-raised-button  matTooltip="You will be logged out"
+           (click)="logout()">Logout</a>
+        </mat-toolbar-row>
+      </mat-toolbar>  
+    <div class="parent-layout">
+        <app-real-timegraph></app-real-timegraph>
+        <div class="child-layout-1">
+            <app-bar-chart [data] = "barChartData" ></app-bar-chart>
+            <app-pie-chart [data] = "pieChartData" ></app-pie-chart>
+        </div>
+        <app-multi-line-chart [data] = "multiLineChart"></app-multi-line-chart>
+        <app-live-feed [activity] ></app-live-feed>
     </div>
-    <app-multi-line-chart></app-multi-line-chart>
-</div>

@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   login() {
     (this.loginservice.login(this.username, this.password).subscribe(
       data => {
+        localStorage.setItem('token', data.token);
         console.log(data)
         console.log(this.decode.decodeToken(data.token))
         this.token_object = this.decode.decodeToken(data.token);
